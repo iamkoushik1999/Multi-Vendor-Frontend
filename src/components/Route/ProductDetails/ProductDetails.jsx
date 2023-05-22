@@ -11,7 +11,6 @@ import styles from "../../../styles/styles";
 const ProductDetails = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
-  const [select, setselect] = useState(false);
 
   const handleMessageSubmit = () => {};
 

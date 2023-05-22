@@ -12,8 +12,11 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
+import { backend_url } from "../../server";
 
 const Header = ({ activeHeading }) => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -76,7 +79,7 @@ const Header = ({ activeHeading }) => {
                         <div className="w-full flex item-start-py-3">
                           <img
                             src={i.image_Url[0].url}
-                            alt="image"
+                            alt="product"
                             className="w-[40px] h-[40px] mr-[10px]"
                           />
                           <h1>{i.name}</h1>
@@ -153,9 +156,19 @@ const Header = ({ activeHeading }) => {
             </div>
             <div className={`${styles.noramlFlex}`}>
               <div className="relative cursor-pointer mr-[15px]">
-                <Link to={`/login`}>
-                  <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
-                </Link>
+                {isAuthenticated ? (
+                  <Link to={`/profile`}>
+                    <img
+                      src={`${backend_url}${user.avatar}`}
+                      alt="my profile"
+                      className="w-[40px] h-[40px] rounded-full"
+                    />
+                  </Link>
+                ) : (
+                  <Link to={`/login`}>
+                    <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
