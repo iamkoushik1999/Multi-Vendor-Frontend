@@ -8,7 +8,7 @@ const CountDown = () => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearTimeout(timer);
-  });
+  },[]);
 
   function calculateTimeLeft() {
     const difference = +new Date("2023-05-31") - +new Date();

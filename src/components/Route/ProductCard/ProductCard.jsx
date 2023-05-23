@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
 import {
@@ -25,7 +25,7 @@ const ProductCard = ({ data }) => {
         <Link to={`/product/${product_name}`}>
           <img
             src={data.image_Url[0].url}
-            alt="image"
+            alt="shop images"
             className="w-full h-[170px] object-contain"
           />
         </Link>

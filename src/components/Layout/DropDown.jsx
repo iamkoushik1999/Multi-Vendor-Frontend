@@ -22,7 +22,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
           >
             <img
               src={i.image_Url}
-              alt="image"
+              alt="category images"
               style={{
                 width: "25px",
                 height: "25px",
